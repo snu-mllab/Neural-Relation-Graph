@@ -1,5 +1,5 @@
 # Neural-Relation-Graph
-Official PyTorch implementation of "Neural Relation Graph: A Unified Framework for Identifying Label Noise and Outlier Data", published at NeurIPS'23
+Official PyTorch implementation of "[Neural Relation Graph: A Unified Framework for Identifying Label Noise and Outlier Data](https://arxiv.org/abs/2301.12321)", published at NeurIPS'23
 
 Will be updated soon! (~10/15)
 
