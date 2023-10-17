@@ -19,6 +19,7 @@ Official PyTorch implementation of "[Neural Relation Graph: A Unified Framework 
    pip install gdown -U --no-cache-dir
 ```
 
+**download.py is not currently working (will be modified soon!)**
 
 ## Label error detection 
 - IamgeNet with synthetic label error (8%) and MAE-Large
