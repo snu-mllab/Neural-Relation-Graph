@@ -7,6 +7,6 @@
 *.png
 *.wav
 *.csv
-!./imagenet/real/val_category.pt
-!./imagenet/real/val_label.pt
+!imagenet/real/val_category.pt
+!imagenet/real/val_label.pt
 
