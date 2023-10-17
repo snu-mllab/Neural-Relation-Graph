@@ -9,12 +9,15 @@ Official PyTorch implementation of "[Neural Relation Graph: A Unified Framework 
 
 ## Requirements
 - PyTorch 1.11 and timm 0.5.4 (check requirements.txt)
+- Set **IMGNET_DIR** in [```./imagenet/data.py```](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/imagenet/data.py) that contains ImageNet train and val directories.
+
+## Download checkpoints
+- We provide main experiment checkpoints, including data features via [Google Drive](https://drive.google.com/drive/folders/1nFBRYFcEXFhTku0JKllu4S97V_NYAebe?usp=sharing).
 - Install gdown
 ```
-   pip uninstall --yes gdown (if you already installed gdown)
+   pip uninstall --yes gdown (# if you already installed gdown)
    pip install gdown -U --no-cache-dir
 ```
-- set **IMGNET_DIR** in ```./imagenet/data.py``` that contains imagenet train and val directories
 
 
 ## Label error detection 
@@ -33,7 +36,7 @@ python detect_val.py -n mae_large_49 --pow 4
 
 ## OOD detection
 - Download OOD datasets following https://github.com/deeplearning-wisc/knn-ood 
-- Set OOD_DIR in ```./imagenet/data.py``` (a directory that contains dtd, iNaturalist, Places, SUN folders)
+- Set OOD_DIR in [```./imagenet/data.py```](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/imagenet/data.py) (to contain dtd, iNaturalist, Places, SUN folders)
 - Run  
 ```
 python detect_ood.py -n mar_large_49 --pow 1
