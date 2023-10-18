@@ -37,6 +37,12 @@ class LoadData(LabelNoise):
               f"# noisy label: {self.noise.sum()} ({self.noise.sum()/len(self.feat)*100:.1f}%)\n")
 
     def _load_feat(self, args):
+        """Load data features and prediction probabilities
+        
+        Output:
+            self.feat (torch.tensor [N, D]): features of data 
+            self.prob (torch.tensor [N, C]): probability vectors of data
+        """
         tag = f"_{args.epoch}" if args.epoch is not None else ""
         file = f"{self.path}/features/feat_train{tag}.pt"
 
@@ -61,8 +67,14 @@ class LoadData(LabelNoise):
         print(f"Load feature from {self.path}")
 
     def _load_noisy_label(self, args):
+        """Load noisy label and its index
+        
+        Output:
+            self.targets (torch.long [N,]): noisy label 
+            self.noise (torch.bool [N,]): index of noisy label
+        """        
         idx = torch.load(f'{self.path}/target.pt')
-        self.feat = self.feat[idx['idx_clean']].cuda()  # pre-cleaning ImageNet data
+        self.feat = self.feat[idx['idx_clean']].cuda()  # pre-cleaning ImageNet data 1.28M -> 1.24M
         self.prob = self.prob[idx['idx_clean']].cuda()
 
         self.targets = torch.tensor(idx['targets']).cuda()

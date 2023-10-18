@@ -66,9 +66,9 @@ python detect_ood.py -n [mae_large_49/resnet50] --pow 1
 
 
 ## Other datasets
-- Prepare data features and probability vectors.
-- Update **self._load_feat and self._load_noisy_label** functions in `detect.py` for label error and `detect_ood.py` for OOD.
-- Run the Python scripts.
+- Prepare **data features** and **probability vectors**.
+- Update **self._load_feat** and **self._load_noisy_label** functions in `detect.py` for label error and `detect_ood.py` for OOD.
+- Run the updated Python scripts.
 
 
 ## Citation

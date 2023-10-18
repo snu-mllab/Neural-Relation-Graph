@@ -35,6 +35,12 @@ class LoadData(LabelNoise):
               f"# noisy label: {self.noise.sum()} ({self.noise.sum()/len(self.feat)*100:.1f}%)\n")
 
     def _load_feat(self, args):
+        """Load validation data features and prediction probabilities
+        
+        Output:
+            self.feat (torch.tensor [N, D]): features of data 
+            self.prob (torch.tensor [N, C]): probability vectors of data
+        """
         model, classifier, transform = load_model_classifier(args)
         _, valset = load_data('imagenet', model, transform)
         self.targets = torch.tensor(valset.targets).cuda()

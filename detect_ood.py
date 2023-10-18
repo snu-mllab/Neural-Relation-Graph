@@ -29,6 +29,14 @@ class LoadDataOOD():
         print(f"Total feature: {self.feat_val.shape}")
 
     def _load_feat(self, args, model, transform):
+        """Load data features and prediction probabilities
+        
+        Output:
+            self.feat (torch.tensor [N, D]): features of training data 
+            self.prob (torch.tensor [N, C]): probability vectors of training data
+            self.feat_val (torch.tensor [N_val+N_ood, D]): features of validation/OOD data 
+            self.prob_val (torch.tensor [N_val+N_ood, C]): probability vectors of validation/OOD data 
+        """
         trainset, valset = load_data('imagenet', model, transform)
         self.targets = torch.tensor(trainset.targets).cuda()
         self.targets_val = None
@@ -50,7 +58,8 @@ class LoadDataOOD():
         self.prob = self.prob[indices]
 
     def cal_baselines(self, temp=1.0):
-        # Larger score means more likely to be OOD
+        """ Calculate baseline scores. Larger score means more likely to be OOD.
+        """
         self.max_logit = -self.logit_val.max(-1)[0]
         self.max_prob = -self.prob_val.max(-1)[0]
         self.energy = -torch.logsumexp(self.logit_val / temp, dim=1)

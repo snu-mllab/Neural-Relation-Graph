@@ -37,22 +37,33 @@ class LoadData(LabelNoise):
               f"# noisy label: {self.noise.sum()} ({self.noise.sum()/len(self.feat)*100:.1f}%)\n")
 
     def _load_feat(self, args):
+        """Load data features and prediction probabilities
+        
+        Output:
+            self.feat (torch.tensor [N, D]): features of data 
+            self.prob (torch.tensor [N, C]): probability vectors of data
+        """
         feat = torch.load(f"{self.path}/feat_train_{args.epoch}.pt")
         if args.dtype == "float16":
             feat['feat'] = feat['feat'].half()
             feat['logit'] = feat['logit'].half()
 
-        self.feat = feat['feat'].cuda()  # Features of data [N, D]
-        self.prob = torch.softmax(feat['logit'].cuda(),
-                                  dim=-1)  # Probability vectors of data [N, C]
+        self.feat = feat['feat'].cuda()
+        self.prob = torch.softmax(feat['logit'].cuda(), dim=-1)
         print(f"Load feature from {self.path}")
 
     def _load_noisy_label(self, args):
+        """Load noisy label and its index
+        
+        Output:
+            self.targets (torch.long [N,]): noisy label 
+            self.noise (torch.bool [N,]): index of noisy label
+        """
         idx = torch.load(f'{args.cache_dir}/target_noisy0.1.pt')
 
-        self.targets = idx['targets'].cuda()  # noisy label
+        self.targets = idx['targets'].cuda()
         self.noise = torch.tensor([False] * len(self.targets))
-        self.noise[idx['idx_chg']] = True  # index of noisy label
+        self.noise[idx['idx_chg']] = True
 
 
 def get_init_score(data, args, save=None):
