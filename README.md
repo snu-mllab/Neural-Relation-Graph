@@ -8,7 +8,7 @@ Official PyTorch implementation of "[Neural Relation Graph: A Unified Framework 
 
 
 ## Requirements
-- PyTorch 1.11 and timm 0.5.4 (check requirements.txt)
+- PyTorch 1.11 and timm 0.5.4 (check [requirements.txt](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/requirements.txt))
 - Set **IMGNET_DIR** in [```./imagenet/data.py```](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/imagenet/data.py) that contains ImageNet train and val directories.
 
 ## Download checkpoints
@@ -36,8 +36,8 @@ python detect_val.py -n mae_large_49 --pow 4
 
 
 ## OOD detection
-- Download OOD datasets following https://github.com/deeplearning-wisc/knn-ood 
-- Set OOD_DIR in [```./imagenet/data.py```](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/imagenet/data.py) (to contain dtd, iNaturalist, Places, SUN folders)
+- Download OOD datasets following [this link](https://github.com/deeplearning-wisc/knn-ood). 
+- Set OOD_DIR in [```./imagenet/data.py```](https://github.com/snu-mllab/Neural-Relation-Graph/blob/main/imagenet/data.py) (to contain dtd, iNaturalist, Places, SUN folders).
 - Run  
 ```
 python detect_ood.py -n mar_large_49 --pow 1

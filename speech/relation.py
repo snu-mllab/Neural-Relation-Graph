@@ -1,3 +1,7 @@
+"""
+The original code is created by Jang-Hyun Kim.
+GitHub Repository: https://github.com/snu-mllab/Neural-Relation-Graph
+"""
 from math import ceil
 import torch
 import time

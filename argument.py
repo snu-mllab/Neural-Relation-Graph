@@ -2,7 +2,7 @@ import argparse
 import os
 
 # dataset dir
-BASE_DIR = '/storage/janghyun/results/relation/image'
+BASE_CACHE_DIR = '/storage/janghyun/results/relation/image'
 
 
 def str2bool(v):
@@ -56,7 +56,7 @@ else:
     args.folder = args.name
     args.epoch = None
 
-args.cache_dir = os.path.join(BASE_DIR, args.folder)
+args.cache_dir = os.path.join(BASE_CACHE_DIR, args.folder)
 os.makedirs(args.cache_dir, exist_ok=True)
 print(f"Results will be saved at {args.cache_dir}\n")
 

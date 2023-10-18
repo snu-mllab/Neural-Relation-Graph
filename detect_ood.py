@@ -1,3 +1,7 @@
+"""
+The original code is created by Jang-Hyun Kim.
+GitHub Repository: https://github.com/snu-mllab/Neural-Relation-Graph
+"""
 import torch
 from imagenet.data import load_data
 from feature import load_model_classifier, normalize, cal_prob, load_feat, load_feat_ood

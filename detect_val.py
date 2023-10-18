@@ -1,3 +1,7 @@
+"""
+The original code is created by Jang-Hyun Kim.
+GitHub Repository: https://github.com/snu-mllab/Neural-Relation-Graph
+"""
 import os
 import torch
 from imagenet.data import load_data
