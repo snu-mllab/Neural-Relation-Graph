@@ -2,7 +2,6 @@ import argparse
 
 parser = argparse.ArgumentParser(description='')
 # Directory
-# parser.add_argument('--cache_dir', type=str, default='/storage/janghyun/results/relation/speech')
 parser.add_argument('--cache_dir', type=str, default='./results')
 # Setting
 parser.add_argument('-t', '--task_name', type=str, default='esc50', help='Target task name')
