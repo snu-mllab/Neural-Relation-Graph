@@ -25,7 +25,7 @@ Official PyTorch implementation of "[Neural Relation Graph: A Unified Framework 
 
 
 ## Label error detection 
-### IamgeNet with synthetic label error (8%) and MAE-Large
+### ImageNet with synthetic label error (8%)
 - Download model, features, noisy labels (**6.3GB**):
 ```
 python download.py -n mae_large_noise0.08_49
