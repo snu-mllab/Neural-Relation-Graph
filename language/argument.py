@@ -1,17 +1,16 @@
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-# Directory
 parser.add_argument('--cache_dir', type=str, default='./results')
 # Setting
-parser.add_argument('-t', '--task_name', type=str, default='sst2', help='Target task name')
+parser.add_argument('-t', '--task_name', type=str, default='sst2', help='target task name')
 parser.add_argument('-n',
                     '--model_name',
                     type=str,
                     default='roberta-base_fp16_noise0.1',
-                    help='Target model name')
-parser.add_argument('-e', '--epoch', type=int, default=4, help='Trained epoch of target model')
-parser.add_argument('--hop', type=int, default=1, help='Subsample hop size of target dataset')
+                    help='target model name')
+parser.add_argument('-e', '--epoch', type=int, default=4, help='trained epoch of target model')
+parser.add_argument('--hop', type=int, default=1, help='subsample hop size of target dataset')
 # Hyperparameters
 parser.add_argument('--kernel',
                     type=str,

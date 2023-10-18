@@ -1,13 +1,12 @@
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-# Directory
 parser.add_argument('--cache_dir', type=str, default='./results')
 # Setting
-parser.add_argument('-t', '--task_name', type=str, default='esc50', help='Target task name')
-parser.add_argument('-n', '--model_name', type=str, default='ast', help='Target model name')
-parser.add_argument('-e', '--epoch', type=int, default=25, help='Trained epoch of target model')
-parser.add_argument('--hop', type=int, default=1, help='Subsample hop size of target dataset')
+parser.add_argument('-t', '--task_name', type=str, default='esc50', help='target task name')
+parser.add_argument('-n', '--model_name', type=str, default='ast', help='target model name')
+parser.add_argument('-e', '--epoch', type=int, default=25, help='trained epoch of target model')
+parser.add_argument('--hop', type=int, default=1, help='subsample hop size of target dataset')
 # Hyperparameters
 parser.add_argument('--kernel',
                     type=str,
