@@ -54,7 +54,7 @@ python detect_val.py -n mae_large_49 --pow 4
 ```
 python download.py -n [mae_large_49/resnet50]
 ```
-- Run,  
+- To conduct OOD detection, run
 ```
 python detect_ood.py -n [mae_large_49/resnet50] --pow 1
 ```
