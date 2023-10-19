@@ -71,7 +71,7 @@ python detect_ood.py -n [mae_large_49/resnet50] --pow 1
 - Check [`./language`](https://github.com/snu-mllab/Neural-Relation-Graph/tree/main/language) and [`./speech`](https://github.com/snu-mllab/Neural-Relation-Graph/tree/main/speech)
 
 
-## Other datasets
+## Applying our method to custom datasets
 - Prepare **data features** and **probability vectors**.
 - Update **self._load_feat** and **self._load_noisy_label** functions in `detect.py` for label error and `detect_ood.py` for OOD.
 - Run the updated Python scripts.
