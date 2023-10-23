@@ -28,7 +28,7 @@ pip install -r requirements.txt
 - For detection, you can **reduce memory usage** by half using half-precision with `--dtype float16`, with a marginal performance drop.  Also, using smaller `--chunk` (e.g., 50) reduces memory usage, while leads to increased computation time.
 - We train MAE-Large for 50 epochs following [official codes](https://github.com/facebookresearch/mae). 
 - For ResNet50, we use checkpoint provided by [timm](https://github.com/huggingface/pytorch-image-models). 
-
+- To run experiments with reduced dataset size, set a hop size for sampling by `--hop [int]`.
 
 ## Label error detection 
 ### ImageNet with synthetic label error (8%)
@@ -64,7 +64,7 @@ python download.py -n [mae_large_49/resnet50]
 ```
 python detect_ood.py -n [mae_large_49/resnet50] --pow 1
 ```
-- The required GPU Memory is approximately **14GB** for MAE-Large and **18GB** for ResNet50. You can reduce memory usage by half using half-precision with `--dtype float16`, with a marginal performance drop. Also, using smaller `--chunk` (e.g., 50) reduces memory usage, while leads to increased computation time. 
+- The required GPU Memory is approximately **14GB** for MAE-Large and **18GB** for ResNet50. You can reduce memory usage by half using half-precision with `--dtype float16`, with a marginal performance drop. Also, using smaller `--chunk` (e.g., 50) reduces memory usage while leading to increased computation time. 
 
 
 ## Language and speech datasets
@@ -72,9 +72,10 @@ python detect_ood.py -n [mae_large_49/resnet50] --pow 1
 
 
 ## Applying our method to custom datasets
-- Prepare **data features** and **probability vectors**.
-- Update **self._load_feat** and **self._load_noisy_label** functions in `detect.py` for label error and `detect_ood.py` for OOD.
-- Run the updated Python scripts.
+1. Prepare **data features** and **probability vectors**.
+2. Update **self._load_feat** and **self._load_noisy_label** functions in `detect.py` for label error and `detect_ood.py` for OOD.
+3. Run the updated Python scripts.
+   - Tune `--pow`, a temperature for the kernel function (suggestion: [1, 4, 6, 8]).
 
 
 ## Citation
